@@ -1,0 +1,19 @@
+div {
+    margin: auto;
+    width: 70%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1{
+    color: rgb(252, 161, 77);
+}
+
+p{
+    color: blueviolet;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2{
+    color: chocolate;
+}
