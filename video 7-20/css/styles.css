@@ -1,6 +1,6 @@
-div {
+div.content{
     margin: auto;
-    width: 70%;
+    width: 90%;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -45,24 +45,29 @@ p>strong{
 }
 
 .list-apel{
-    border: 1px solid black;
-    padding: 5px;
+    border: 1px solid blueviolet;
+    padding: 10px;
+    height: 20em;    
+    font-size: 1rem;
 }
 
-.items-list{
-    margin-left: 25px;
-}
+
+
+
+
 
 .list-harga{
     text-align: center;
 }
 
 .list-harga-table{
-    margin-left: 39%;
+    display: flex;
+    justify-content: center;
 }
 
+
 h1.title{
-    margin-left: 42%;
+    text-align: center;
 }
 
 .img-title{
@@ -121,4 +126,10 @@ li.dropdown{
 .dropdown:hover .dropdown-content {
     display: block;
     transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        background-color: aqua;
+    }
 }
