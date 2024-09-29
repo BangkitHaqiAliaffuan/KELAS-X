@@ -1,0 +1,236 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+/* nav */
+
+nav-left ul, nav-right ul{
+    list-style: none;
+}
+
+.logo img{
+    width: 100px;
+    display: block;
+    margin: auto;
+    padding: 10%;
+}
+
+nav-left ul a, nav-right ul a{
+    display: block;
+    padding: 10px;
+    background-color: aqua;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+nav-left ul a:hover, nav-right ul a:hover{
+    background-color: red;
+}
+
+/* main */
+
+.main-right{
+    margin: auto;
+    text-align: center;
+    width: 60%;
+    
+}
+
+.main-right p{
+    margin-top: 10px;
+}
+
+.main-left{
+    margin: 30px;
+}
+
+/* produk */
+
+.display{
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+.display-content{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.display-content h2{
+    font-size: 40px;
+}
+
+.produk{
+    margin-top: 10%;
+}
+
+.produk-content{
+    text-align: center;
+    padding: 30px;
+}
+
+.img-produk img{
+    width: 200px;
+}
+
+.description{
+    margin: auto;
+    width: 50%;
+}
+
+/* informasi */
+
+.icon img{
+    width: 50px;
+}
+
+.info{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.info-content{
+    padding: 20px;
+}
+
+/* media social */
+
+.medsos p{
+    margin-top: 20px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: rgb(50, 115, 237);
+    margin-bottom: 40px;
+    text-transform: capitalize;
+}
+
+.medsos-form{
+    background-color: rgb(33, 104, 237);
+    padding: 40px;
+    text-align: center;
+}
+
+.medsos-form input[type="email"]{
+    width: 60%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 10px;
+}
+
+.medsos-form button{
+    padding:10px;
+    border-radius: 10px;
+    background-color: aqua;
+    color: white;
+}
+
+.medsos-icon{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+/* footer/sitemap */
+
+.sitemap{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(33, 104, 237);
+    color: white;
+    padding: 40px;
+}
+
+.sitemap-left ul li{
+    list-style: none;
+    padding: 10px;
+    padding-left: 0;
+}
+
+.sitemap-right{
+    text-align: center;
+}
+
+.payment{
+    display: flex;
+    justify-content: space-around;
+    padding: 40px
+}
+
+@media screen and (min-width: 560px){
+    .header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    nav-left, nav-right{
+        display: flex;
+    }
+
+    nav-left ul, nav-right ul{
+        display: flex;
+    }
+
+    nav-left ul a, nav-right ul a{
+        background: none;
+        color: black;
+    }
+
+    .main{
+        display: flex;
+    }
+
+    .main-left{
+        width: 40%;
+        
+    }
+
+    .main-right{
+        width: 50%;
+        margin-right: 20px;
+        margin-left: 0px;
+    }
+
+    .produk{
+        display: flex;
+        justify-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .main-right h2{
+        font-size: 24px;
+    }
+    
+    .main-right p{
+        margin-top: 20px;    
+    }
+
+    .main-right{
+        margin: auto;
+    }
+
+    .info{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    
+    .medsos p{
+        width: 50%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .info-content{
+        display: flex;
+    }
+
+} 

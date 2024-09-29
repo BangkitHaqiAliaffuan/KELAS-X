@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+nav-left ul, nav-right ul{
+    list-style: none;
+}
+
+.logo img{
+    width: 100px;
+    display: block;
+    margin: auto;
+    padding: 10%;
+}
+
+nav-left ul a, nav-right ul a{
+    display: block;
+    padding: 10px;
+    background-color: aqua;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+nav-left ul a:hover, nav-right ul a:hover{
+    background-color: red;
+}
+
+.main-right{
+    margin: 10px;
+    text-align: center;
+}
+
+.main-left{
+    margin: 30px;
+}
+
+.display{
+    margin-top: 10%;
+}
+
+.display-content{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.produk{
+    margin-top: 10%;
+}
+
+.produk-content{
+    text-align: center;
+    padding: 10px;
+}
+
+.produk-content h2{
+    margin: 50px;
+}
+
+.produk-content img{
+    width: 50%;
+}
+
+@media screen and (min-width: 560px){
+    .header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .main{
+        display: flex;
+    }
+
+    .produk{
+        display: flex;
+        justify-items: center;
+    }
+
+    .produk-content h2{
+        margin: 0%;
+
+    }
+
+
+    .rogSigma{
+        margin-top: 13%;
+    }
+
+    .kurangSigma{
+        margin-top: 7%;
+    }
+
+    .main-right{
+        margin: auto;
+    }
+
+    nav-left, nav-right{
+        display: flex;
+    }
+
+    nav-left ul, nav-right ul{
+        display: flex;
+    }
+
+    nav-left ul a, nav-right ul a{
+        background: none;
+        color: black;
+    }
+} 
