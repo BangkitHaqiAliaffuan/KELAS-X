@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    text-align: center;
+    font-size: 2rem;
+    color: red;
+    margin: 4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.catur-rows-1, .catur-rows-2{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    margin: 4rem;
+}
+
+.kotak{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 3px solid black;
+}
+
+.putih{
+    background: white;
+}
+
+.kotak{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}

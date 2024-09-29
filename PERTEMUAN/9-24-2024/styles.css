@@ -1,0 +1,187 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background-color: rgb(235, 232, 232);
+}
+
+/* display */
+img{
+    width: 60px;
+}
+
+.title{
+    font-size: 1.3rem;
+}
+
+.container-display{
+    float: left;
+    margin-left: 2%;
+}
+.sub-display{
+    display: flex;
+    gap: 50px;
+}
+/* end of display */
+
+/* item */
+.container-item{
+    margin-top: 5%;
+    width: 90%;
+    margin-left: 5%;
+    height: 480px;
+    background-color: white;
+}
+
+.container-desc{
+    float: right;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    height: 430px;
+    width: 700px;
+}
+/* feedback */
+.feedback{
+    display: flex;
+    gap: 5px;
+}
+
+svg{
+    width: 15px;
+}
+
+.star{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(81, 81, 81);
+}
+/* end of feedback */
+/* price */
+.flash-sale{
+    width: 600px;
+}
+
+
+.container-price{
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+}
+
+.old-price{
+    color: grey;
+    margin-top: 7px;
+}
+
+.price{
+    color: rgb(255, 85,0);
+}
+
+.discount{
+    margin-left: 5px;
+    margin-top: 2px;
+    background-color: rgb(255, 85,0);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: smaller;
+}
+
+.return{
+    gap: 20px;
+    display: flex;
+    color: grey;
+}
+
+.sub{
+    margin-left: 32px;
+}
+
+.hemat{
+    margin-top: 20px;
+    display: flex;
+    gap: 53px;
+    color: grey;
+}
+
+.hadiah{
+    background: rgb(253, 214,200);
+    color: rgb(255, 85,0);
+    padding: 3px;
+    margin-top: -3px;
+}
+
+.pengiriman{
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;  
+    color: grey;
+}
+
+.location{
+    margin-left: 15%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.ongkir{
+    margin-left: 15%;
+    color: grey;
+}
+
+.ongkir h5, .ongkir{
+    display: flex;
+    gap: 10px;
+}
+
+.ongkir h5 + h5{
+    color: black;
+}
+
+span{
+    color: grey;
+}
+/* end of price */
+
+/* option */
+.option, .container-option{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.option{
+    margin-top: 20px;
+    align-items: center;
+}
+
+.option h5{
+    color: grey;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    border: 0.5px grey solid;
+    padding: 2px;
+    padding-right: 4px;
+}
+
+.item p{
+    font-size: x-small;
+}
+
+.item img{
+    width: 30px;
+}
+
+
+
+
