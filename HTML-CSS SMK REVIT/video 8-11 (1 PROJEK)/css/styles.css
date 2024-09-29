@@ -1,0 +1,135 @@
+div.content{
+    margin: auto;
+    width: 90%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1{
+    color: rgb(252, 161, 77);
+   
+    background-color: chocolate;
+    position: fixed;
+    padding: 10px;
+}
+
+p{
+    color: blueviolet;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2{
+    color: chocolate;
+}
+img{
+    margin-top: 100px;
+}
+
+p>strong{
+    color: rgb(3, 3, 22);
+}
+
+.sub-title{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#apel{
+    color: darkcyan;
+    position: absolute;
+}
+
+.img-apel{
+    margin-top: 0px;
+    margin-top: 100px;
+}
+
+.list-apel{
+    border: 1px solid blueviolet;
+    padding: 10px;
+    height: 20em;    
+    font-size: 1rem;
+}
+
+
+
+
+
+
+.list-harga{
+    text-align: center;
+}
+
+.list-harga-table{
+    display: flex;
+    justify-content: center;
+}
+
+
+h1.title{
+    text-align: center;
+}
+
+.img-title{
+    width: 20%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkorange;
+}
+
+li{
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover, .dropbtn{
+    background: darkorange;
+}
+
+li.dropdown{
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: darkorange;
+    min-width: 250px;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover{
+    background: rgb(255, 255, 255);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        background-color: aqua;
+    }
+}
