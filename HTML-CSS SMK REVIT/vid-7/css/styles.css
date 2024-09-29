@@ -1,0 +1,68 @@
+div {
+    margin: auto;
+    width: 70%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1{
+    color: rgb(252, 161, 77);
+   
+    background-color: chocolate;
+    position: fixed;
+    padding: 10px;
+}
+
+p{
+    color: blueviolet;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2{
+    color: chocolate;
+}
+img{
+    margin-top: 100px;
+}
+
+p>strong{
+    color: rgb(3, 3, 22);
+}
+
+.sub-title{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#apel{
+    color: darkcyan;
+}
+
+.img-apel{
+    margin-top: 0px;
+}
+
+.list-apel{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.items-list{
+    margin-left: 25px;
+}
+
+.list-harga{
+    text-align: center;
+}
+
+.list-harga-table{
+    margin-left: 39%;
+}
+
+h1.title{
+    margin-left: 42%;
+}
+
+.img-title{
+    width: 20%;
+}
