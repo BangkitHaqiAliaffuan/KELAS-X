@@ -1,0 +1,52 @@
+*{
+    font-family: monospace;
+}
+
+label{
+    font-size: 20rem;
+    display: flex;
+    justify-content: center;
+}
+
+#btncontainer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-right: 1rem;
+}
+
+#incbtn{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 20px;
+    background-color: white;
+}
+
+#decbtn{
+    padding: 20px;
+    background: blue;
+    color: white;
+}
+
+#resetbtn{
+    padding: 20px;
+    background: blue;
+    color: white;
+}
+
+#decbtn:hover, #resetbtn:hover{
+    color: red;
+    background-color: white;
+    transition: all 0.5s ease-out;
+}
+
+#incbtn:hover{
+    color: white;
+    background: blue;
+    transition: all 0.5s ease-out;
+}
+
+#decbtn:active, #resetbtn:active, #incbtn:active{
+    font-size: 1.2em;
+    transition: all 0.1ms ease-in;
+}
