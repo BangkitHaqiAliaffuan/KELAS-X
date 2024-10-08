@@ -1,0 +1,25 @@
+.rumah{
+    height: 500px;
+    background-color: red;
+}
+
+.kamar{
+    background-color: yellow;
+    height: 400px;
+}
+
+.meja{
+    background-color: aqua;
+    height: 100px;
+}
+
+.kursi{
+    background: blue;
+    height: 100px;
+}
+
+.laptop{
+    background-color: pink;
+}
+
+
