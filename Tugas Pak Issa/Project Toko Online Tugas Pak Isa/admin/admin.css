@@ -1,0 +1,447 @@
+/* Styling untuk tombol 'Tambah Produk Baru' */
+h2 {
+  text-align: center;
+}
+#showAddUserForm,
+#showAddProductForm {
+  background-color: #007bff; /* Warna latar belakang tombol */
+  color: white; /* Warna teks tombol */
+  padding: 12px 30px; /* Padding horizontal dan vertikal tombol */
+  border: none; /* Menghilangkan border default */
+  border-radius: 7px; /* Sudut melengkung tombol */
+  cursor: pointer; /* Menunjukkan bahwa ini adalah tombol yang dapat diklik */
+  font-size: 18px; /* Ukuran font tombol */
+
+  /* Animasi transisi untuk efek klik */
+  transition: background-color 300ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    opacity 200ms linear;
+
+  /* Efek hover yang menarik */
+  &:hover {
+    background-color: #0056b3;
+    box-shadow: 0 px, -5 px, 10 px, rgba (0, 0, 0, 0 0.05);
+  }
+
+  /* Fokus pada tombol */
+  &:active {
+    transform: translateZ (0);
+
+    /* Untuk Chrome dan Safari */
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+
+    /* Untuk Firefox*/
+    mstransform: translateZ(0);
+    transform: translateZ(0);
+
+    /* Untuk IE9+*/
+  }
+}
+
+#imagePreviewContainer {
+  margin-top: 20px; /* Jarak atas */
+}
+
+#imagePreview {
+  max-width: 100%; /* Lebar maksimum gambar */
+  border-radius: 5px; /* Sudut melengkung */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white; /* Warna teks */
+  text-align: center; /* Teks di tengah */
+  transition: background-color 0.3s, transform 0.2s; /* Efek transisi */
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3; /* Warna latar belakang saat hover */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.custom-file-upload input[type="file"] {
+  display: none; /* Sembunyikan input file default */
+}
+
+#addProductForm {
+  background-color: #ffffff; /* Warna latar belakang form */
+  padding: 20px; /* Padding di dalam form */
+  border-radius: 8px; /* Sudut melengkung */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+#addProductForm input[type="text"],
+#addProductForm input[type="number"],
+#addProductForm textarea,
+#addProductForm input[type="file"] ,
+#addUserForm input[type="email"], 
+#addUserForm input[type="password"] {
+  width: 100%; /* Lebar penuh */
+  padding: 10px; /* Padding dalam input */
+  margin-bottom: 15px; /* Jarak bawah antar elemen */
+  border: 1px solid #ddd; /* Border abu-abu muda */
+  border-radius: 5px; /* Sudut melengkung pada input */
+}
+
+#addProductForm input[type="submit"] {
+  background-color: #007bff; /* Warna latar belakang tombol */
+  color: white; /* Warna teks tombol */
+  padding: 10px 15px; /* Padding tombol */
+  border: none; /* Menghilangkan border default */
+  border-radius: 5px; /* Sudut melengkung pada tombol */
+  cursor: pointer; /* Menunjukkan bahwa ini adalah tombol yang dapat diklik */
+  font-size: 16px; /* Ukuran font tombol */
+}
+
+#addProductForm input[type="submit"]:hover {
+  background-color: #0056b3; /* Warna saat hover */
+}
+
+/* Styling untuk form penambahan produk */
+#addUserForm, 
+#addProductForm 
+{
+  background-color: #ffffff; /* Warna latar belakang form */
+  padding: 20px; /* Padding di dalam form */
+  border-radius: 8px; /* Sudut melengkung */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+#addProductForm h2, 
+#addUserForm h2 
+ {
+  margin-bottom: 20px; /* Jarak bawah judul */
+  color: #007bff; /* Warna teks judul */
+}
+
+label {
+  font-weight: bold; /* Teks label tebal */
+  margin-bottom: 5px; /* Jarak bawah label */
+  display: block; /* Membuat label menjadi block sehingga berada di baris terpisah */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%; /* Lebar penuh */
+  padding: 10px; /* Padding dalam input */
+  margin-bottom: 15px; /* Jarak bawah antar elemen */
+  border: 1px solid #ddd; /* Border abu-abu muda */
+  border-radius: 5px; /* Sudut melengkung pada input */
+  transition: border-color 0.3s; /* Transisi warna border saat fokus */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #007bff; /* Warna border saat fokus */
+}
+
+input[type="submit"] {
+  background-color: #007bff; /* Warna latar belakang tombol */
+  color: white; /* Warna teks tombol */
+  padding: 10px 15px; /* Padding tombol */
+  border: none; /* Menghilangkan border default */
+  border-radius: 5px; /* Sudut melengkung pada tombol */
+  cursor: pointer; /* Menunjukkan bahwa ini adalah tombol yang dapat diklik */
+  font-size: 16px; /* Ukuran font tombol */
+  transition: background-color 0.3s, transform 0.2s; /* Transisi untuk efek hover */
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Warna saat hover */
+  transform: translateY(-2px); /* Efek angkat saat hover */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Styling untuk body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Warna latar belakang */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling untuk header */
+header {
+    background-color: #007BFF; /* Warna latar belakang header */
+    color: white; /* Warna teks */
+    padding: 20px; /* Padding dalam header */
+    text-align: center; /* Pusatkan teks */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek kedalaman */
+}
+
+h1 {
+    margin: 0; /* Menghilangkan margin default */
+    font-size: 2.5em; /* Ukuran font judul */
+}
+
+/* Styling untuk navbar */
+nav {
+    background-color: #0056b3; /* Warna latar belakang navbar */
+    padding: 15px; /* Padding dalam navbar */
+    position: sticky; /* Tetap di atas saat scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+nav ul {
+    list-style-type: none; /* Menghilangkan bullet point */
+    margin: 0; /* Menghilangkan margin */
+    padding: 0; /* Menghilangkan padding */
+    display: flex; /* Menggunakan flexbox untuk tata letak horizontal */
+    justify-content: center; /* Pusatkan item dalam navbar */
+}
+
+nav ul li {
+    margin: 0 20px; /* Jarak antar item */
+    position: relative; /* Untuk efek hover */
+}
+
+nav ul li a {
+    color: white; /* Warna teks link */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    font-weight: bold; /* Teks tebal */
+    transition: color 0.3s, transform 0.3s; /* Efek transisi saat hover */
+}
+
+nav ul li a:hover {
+    color: rgb(0, 162, 255); /* Warna saat hover */
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+nav ul li::after {
+    content: ''; 
+    position: absolute;
+    width: 100%; 
+    height: 3px;
+    background-color:rgb(0, 162, 255); 
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0); 
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li:hover::after {
+    transform: scaleX(1); 
+}
+
+.container-home {
+    max-width: 1200px; /* Lebar maksimum kontainer */
+    margin: auto; /* Pusatkan kontainer */
+    padding: 20px; /* Padding dalam kontainer */
+}
+
+button {
+    background-color: #28a745; /* Warna hijau untuk tombol tambah produk */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Warna lebih gelap saat hover */
+}
+
+table {
+    width: 100%; /* Lebar tabel penuh dalam kontainer */
+    margin-top: 20px; /* Jarak atas tabel dari elemen sebelumnya */
+    border-collapse: collapse; /* Menghilangkan jarak antara sel tabel */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+} */
+/* Styling untuk tabel */
+/* Styling untuk tabel */
+table {
+  width: 80%; /* Lebar tabel */
+  margin: auto; /* Pusatkan tabel */
+  border-collapse: collapse; /* Menghilangkan jarak antara sel */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+th,
+td {
+  padding: 12px; /* Padding dalam sel */
+  text-align: left; /* Rata kiri */
+  border-bottom: 1px solid #ddd; /* Garis bawah sel */
+}
+
+th {
+  background-color: #007bff; /* Warna latar belakang header tabel */
+  color: white; /* Warna teks header tabel */
+}
+
+img {
+  max-width: 100px; /* Ukuran maksimum gambar */
+}
+
+/* Atur lebar kolom */
+.column-harga {
+  width: 150px; /* Lebar kolom harga */
+}
+
+.column-aksi {
+  width: 100px; /* Lebar kolom aksi */
+}
+
+/* Styling untuk pagination */
+.pagination {
+  text-align: center; /* Pusatkan teks */
+  margin-top: 20px; /* Jarak atas */
+}
+
+.pagination a,
+.pagination strong {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background-color: #007bff; /* Warna latar belakang tombol */
+  color: white; /* Warna teks tombol */
+  text-decoration: none; /* Menghilangkan garis bawah pada link */
+  transition: background-color 0.3s, transform 0.2s; /* Efek transisi */
+}
+
+.pagination a:hover {
+  background-color: #0056b3; /* Warna saat hover */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.pagination strong {
+  background-color: #0056b3; /* Warna untuk halaman saat ini */
+}
+
+.container-home {
+  max-width: 1200px; /* Lebar maksimum kontainer */
+  margin: auto; /* Pusatkan kontainer */
+  padding: 20px; /* Padding dalam kontainer */
+}
+
+button {
+  background-color: #28a745; /* Warna hijau untuk tombol tambah produk */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218838; /* Warna lebih gelap saat hover */
+}
+/* 
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #0056b3;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+nav ul li a:hover {
+  background-color: white;
+  color: #0056b3;
+  transition: all ease 500ms;
+} */
+
+.container-home {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#addProductForm {
+  display: none; /* Sembunyikan form saat halaman dimuat */
+  margin-bottom: 20px; /* Tambahkan jarak bawah */
+}
+
+.produk {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produk:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Menghilangkan jarak antara sel */
+}
+
+th,
+td {
+  padding: 10px; /* Padding untuk sel */
+  text-align: left; /* Rata kiri */
+}
+
+th {
+  background-color: #007bff; /* Warna latar belakang header tabel */
+  color: white; /* Warna teks header tabel */
+}
+
+img {
+  max-width: 100px; /* Ukuran maksimum gambar */
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+}
