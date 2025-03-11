@@ -14,26 +14,6 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
-        .header {
-            background: #18181b;
-            border-bottom: 1px solid #2a2a2a;
-            padding: 15px 30px;
-        }
-
-        .navbar-brand {
-            color: white !important;
-            font-weight: 600;
-        }
-
-        .nav-link {
-            color: #ffffff80 !important;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: white !important;
-        }
-
         .register-container {
             max-width: 500px;
             margin: 40px auto;
@@ -117,6 +97,7 @@
             animation: ripple 1s ease-out;
         }
 
+
         @keyframes ripple {
             0% {
                 transform: scale(0, 0);
@@ -183,27 +164,6 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="#">Game Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="produk.php">Browse</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
     <div class="container">
         <div class="register-container">
             <h2 class="text-center mb-4">Create Account</h2>

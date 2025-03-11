@@ -1,273 +1,495 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #121212;
-      color: white;
-    }
+<style>
+        .review-form {
+            background: #1f1f23;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
 
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 15px 30px;
-      background: #18181b;
-      border-bottom: 1px solid #2a2a2a;
-    }
-    
-    .logo {
-        background-image: url('./images/pngegg.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-      width: 32px;
-      height: 32px;
-      margin-right: 20px;
-    }
+        .review-form h3 {
+            margin-bottom: 16px;
+        }
 
-    .search-bar {
-      background: #2a2a2a;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 15px;
-      color: white;
-      width: 300px;
-      margin-right: 20px;
-    }
+        .rating-input {
+            margin-bottom: 16px;
+        }
 
-    .nav-items {
-      display: flex;
-      gap: 20px;
-    }
+        .star-rating {
+            display: inline-block;
+            direction: rtl;
+        }
 
-    .nav-item {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
+        .star-rating input {
+            display: none;
+        }
 
-    .main-content {
-      display: flex;
-      height: calc(100vh - 65px);
-    }
+        .star-rating label {
+            color: #666;
+            font-size: 24px;
+            padding: 0 2px;
+            cursor: pointer;
+            display: inline-block;
+        }
 
-    .sidebar {
-      width: 250px;
-      background: #18181b;
-      padding: 20px;
-      flex-shrink: 0;
-    }
+        .star-rating input:checked~label {
+            color: #ffd700;
+        }
 
-    .right-sidebar {
-      width: 280px;
-      background: #18181b;
-      padding: 20px;
-      flex-shrink: 0;
-      border-left: 1px solid #2a2a2a;
-    }
+        .star-rating label:hover,
+        .star-rating label:hover~label {
+            color: #ffd700;
+        }
 
-    .game-recommendation {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-      text-decoration: none;
-      color: white;
-    }
+        .review-input {
+            margin-bottom: 16px;
+        }
 
-    .game-recommendation:hover {
-      background: #2a2a2a;
-    }
+        .review-input textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background: #18181b;
+            color: white;
+            resize: vertical;
+        }
 
-    .game-recommendation img {
-      width: 42px;
-      height: 42px;
-      border-radius: 4px;
-      margin-right: 12px;
-    }
+        .review-form .btn {
+            background: #0078f2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
 
-    .game-recommendation-info {
-      flex: 1;
-    }
+        .review-form .btn:hover {
+            opacity: 0.9;
+        }
 
-    .game-recommendation-title {
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
+        .price-container {
+            background: #18181b;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
 
-    .game-recommendation-subtitle {
-      font-size: 12px;
-      color: #999;
-    }
+        .offer-banner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(90deg, #ff4d4d, #ff8533);
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
 
-    .sidebar-item {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      color: white;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
+        .offer-text {
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
 
-    .sidebar-item.active {
-      background: #0078f2;
-      border-radius: 4px;
-    }
+        .offer-timer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: white;
+            font-family: monospace;
+            font-size: 16px;
+        }
 
-    .game-content {
-      flex: 1;
-      padding: 30px;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('./images/bmw.webp');
-      background-size: cover;
-      position: relative;
-    }
+        .price-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
 
-    .game-info {
-      position: absolute;
-      bottom: 50px;
-      left: 50px;
-    }
+        .discount-tag {
+            background: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 20px;
+        }
 
-    .game-title {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
+        .price-display {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
 
-    .game-description {
-      font-size: 16px;
-      margin-bottom: 20px;
-      max-width: 500px;
-    }
+        .original-price {
+            color: #888;
+            text-decoration: line-through;
+            font-size: 16px;
+            position: relative;
+        }
 
-    .price {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
 
-    .button-group {
-      display: flex;
-      gap: 10px;
-    }
 
-    .buy-button {
-      background: white;
-      color: black;
-      border: none;
-      padding: 10px 30px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+        .current-price {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
 
-    .wishlist-button {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+        .currency {
+            font-size: 0.7em;
+            margin-right: 4px;
+            opacity: 0.9;
+        }
 
-    .quick-launch {
-      margin-top: 50px;
-    }
+        .free-label {
+            color: #4CAF50;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-    .quick-launch-title {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <div class="logo">
-    </div>
-    <input type="text" class="search-bar" placeholder="Search store">
-    <div class="nav-items">
-      <a href="#" class="nav-item">Discover</a>
-      <a href="#" class="nav-item">Browse</a>
-      <a href="#" class="nav-item">News</a>
-    </div>
-  </div>
-  
-  <div class="main-content">
-    <div class="sidebar">
-      <a href="#" class="sidebar-item ">Store</a>
-      <a href="#" class="sidebar-item">Library</a>
-      <a href="#" class="sidebar-item">Unreal Engine</a>
-      
-      <div class="quick-launch">
-        <div class="quick-launch-title">QUICK LAUNCH</div>
-        <a href="#" class="sidebar-item">
-          <img src="./images/Half-Life-Logo-500x281.png" width="32" alt="Game icon" style="margin-right: 10px">
-          Fortnite
-        </a>
-      </div>
-    </div>
-    
-    <div class="game-content">
-      <div class="game-info">
-        <h1 class="game-title">BLACK MYTH: WUKONG</h1>
-        <p class="game-description">Set out as the Destined One in this action RPG rooted in Chinese mythology.</p>
-        <div class="price">IDR 699,999</div>
-        <div class="button-group">
-          <button class="buy-button">Buy Now</button>
-          <button class="wishlist-button">Add to Wishlist</button>
-        </div>
-      </div>
-    </div>
+        .game-description {
+            background: #1f1f23;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 20px 0;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
 
-    <div class="right-sidebar">
-      <a href="#" class="game-recommendation">
-        <img src="./images/ss.png" width="52" alt="Fortnite">
-        <div class="game-recommendation-info">
-          <div class="game-recommendation-title">Fortnite Festival</div>
-        </div>
-      </a>
+        .game-description p {
+            margin-bottom: 16px;
+        }
 
-      <a href="#" class="game-recommendation">
-        <img src="./images/ssky.png" width="52" alt="Marvel Rivals">
-        <div class="game-recommendation-info">
-          <div class="game-recommendation-title">Marvel Rivals</div>
-        </div>
-      </a>
+        .game-description p:last-child {
+            margin-bottom: 0;
+        }
 
-      <a href="#" class="game-recommendation">
-        <img src="./images/pac.png" width="52" alt="FF7">
-        <div class="game-recommendation-info">
-          <div class="game-recommendation-title">FINAL FANTASY VII REBIRTH</div>
-        </div>
-      </a>
+        /* Style for bullet points */
+        .game-description ul {
+            padding-left: 20px;
+            margin: 16px 0;
+        }
 
-      <a href="#" class="game-recommendation">
-        <img src="./images/mine.png" width="52" alt="Smite 2">
-        <div class="game-recommendation-info">
-          <div class="game-recommendation-title">SMITE 2</div>
-        </div>
-      </a>
+        .game-description li {
+            margin-bottom: 8px;
+        }
 
-      <a href="#" class="game-recommendation">
-        <img src="./images/gta.png" width="52" alt="Black Myth: Wukong">
-        <div class="game-recommendation-info">
-          <div class="game-recommendation-title">Black Myth: Wukong</div>
-        </div>
-      </a>
+        @media (max-width: 768px) {
+            .game-description {
+                padding: 16px;
+            }
+        }
 
-      <a href="#" class="game-recommendation">
-        <img src="./images/nin.png" width="52" alt="Honkai">
-        <div class="game-recommendation-info">
-          <div class="game-recommendation-title">Honkai Star Rail</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</body>
-</html>
+        .reviews-section {
+            background: #18181b;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .review-summary {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 24px;
+            background: #1f1f23;
+            border-radius: 8px;
+        }
+
+        .rating-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .rating-stars {
+            color: #ffd700;
+            font-size: 24px;
+            margin: 8px 0;
+        }
+
+        .total-reviews {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .review-item {
+            background: #1f1f23;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .review-stats {
+            display: flex;
+            gap: 16px;
+            color: #888;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .review-content {
+            color: #dddddd;
+            line-height: 1.6;
+            margin-top: 16px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #121212;
+            color: white;
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 16px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link.active {
+            color: white;
+            border-bottom: 2px solid #0078f2;
+        }
+
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .banner-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail.active {
+            border-color: #0078f2;
+        }
+
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .arrow {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
+        }
+
+        .purchase-section {
+            background: #18181b;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .price-info {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #0078f2;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .btn-wishlist {
+            background: #333;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .system-requirements {
+            background: #18181b;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+            color: #ffffff;
+        }
+
+        .requirements-section h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .requirements-tabs {
+            margin-bottom: 24px;
+            border-bottom: 2px solid #1f1f23;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 16px;
+            padding: 8px 16px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0078f2;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .requirements-column h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #888;
+        }
+
+        .requirement-item {
+            background: #1f1f23;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .requirement-label {
+            display: block;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .requirement-value {
+            display: block;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .requirements-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .system-requirements {
+                padding: 16px;
+            }
+        }
+    </style>

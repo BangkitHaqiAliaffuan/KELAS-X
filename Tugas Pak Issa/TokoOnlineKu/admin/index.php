@@ -1,219 +1,221 @@
+<?php
+session_start();
+            // Database connection
+            function connectDB() {
+                $host = "localhost";
+                $dbname = "toko_online";
+                $username = "root";
+                $password = "";
+                
+                try {
+                    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    return $conn;
+                } catch(PDOException $e) {
+                    die("Connection failed: " . $e->getMessage());
+                }
+            }
+
+            // Login function
+            function adminLogin($username, $password) {
+                try {
+                    $conn = connectDB();
+                    
+                    $stmt = $conn->prepare("SELECT * FROM admin WHERE username = :username AND password = :password");
+                    $stmt->bindParam(':username', $username);
+                    $stmt->bindParam(':password', $password);
+                    $stmt->execute();
+                    
+                    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+                    
+                    if ($admin) {
+                        $_SESSION['admin_id'] = $admin['id'];
+                        $_SESSION['admin_username'] = $admin['username'];
+                        $_SESSION['is_admin'] = true;
+                        
+                        return true;
+                    }
+                    
+                    return false;
+                } catch(PDOException $e) {
+                    error_log("Login error: " . $e->getMessage());
+                    return false;
+                }
+            }
+
+            // Handle login form submission
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                
+                if (adminLogin($username, $password)) {
+                    header("Location: admin.php?pages=dashboard");
+                    exit();
+                } else {
+                    $error_message = "Username atau password salah";
+                }
+            }
+            ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Game Store</title>
+    <title>Admin Login - Game Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --epic-dark: #121212;
+            --epic-darker: #18181b;
+            --epic-blue: #0078f2;
+            --epic-blue-hover: #0086ff;
+            --epic-text: #ffffff;
+            --epic-text-secondary: #a1a1a1;
+            --epic-border: #2a2a2a;
+        }
+
         body {
-            margin: 0;
-            padding: 0;
+            background-color: var(--epic-dark);
+            color: var(--epic-text);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #121212;
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
-            display: flex;
-            align-items: center;
-            padding: 15px 30px;
-            background: #18181b;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        .nav-items {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-item {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #0078f2;
-            transition: width 0.3s ease;
-        }
-
-        .nav-item:hover::after {
-            width: 100%;
-        }
-
-        .login-container {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 30px;
-            background: #18181b;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transform: translateY(20px);
-            opacity: 0;
-            animation: fadeInUp 0.5s forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .form-control {
-            background: #2a2a2a;
-            border: none;
-            color: white;
-            padding: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            background: #3a3a3a;
-            box-shadow: 0 0 0 2px rgba(0, 120, 242, 0.5);
-            color: white;
-        }
-
-        .form-label {
-            color: #888;
-            margin-bottom: 8px;
-        }
-
-        .btn-primary {
-            background: #0078f2;
-            border: none;
-            padding: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 120, 242, 0.3);
-            background: #0086ff;
-        }
-
-        .btn-outline-secondary {
-            border-color: #2a2a2a;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-secondary:hover {
-            background: #2a2a2a;
-            border-color: #2a2a2a;
-            color: white;
-        }
-
-        footer {
-            background: #18181b;
-            border-top: 1px solid #2a2a2a;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        footer a {
-            color: #888;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #0078f2;
+            background-color: var(--epic-darker);
+            border-bottom: 1px solid var(--epic-border);
+            padding: 1rem 0;
         }
 
         .navbar-brand {
-            color: white;
-            text-decoration: none;
+            color: var(--epic-text);
             font-weight: 600;
-            font-size: 20px;
+            font-size: 1.25rem;
+            text-decoration: none;
         }
 
-        .navbar-toggler {
-            border-color: #2a2a2a;
+        .login-container {
+            max-width: 420px;
+            margin: auto;
+            padding: 2rem;
+            background: var(--epic-darker);
+            border-radius: 8px;
+            border: 1px solid var(--epic-border);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.5s ease;
         }
 
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--epic-text);
+        }
+
+        .form-label {
+            color: var(--epic-text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            background-color: var(--epic-dark);
+            border: 1px solid var(--epic-border);
+            color: var(--epic-text);
+            padding: 0.75rem 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            background-color: var(--epic-dark);
+            border-color: var(--epic-blue);
+            box-shadow: 0 0 0 2px rgba(0, 120, 242, 0.25);
+            color: var(--epic-text);
+        }
+
+        .btn-primary {
+            background-color: var(--epic-blue);
+            border: none;
+            padding: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--epic-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 120, 242, 0.25);
+        }
+
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            color: #ff6b6b;
+            border-radius: 4px;
         }
 
         .register-link {
-            color: #0078f2;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            color: var(--epic-text-secondary);
+            text-align: center;
+            margin-top: 1rem;
         }
 
-        .register-link:hover {
-            color: #0086ff;
+        .register-link a {
+            color: var(--epic-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .register-link a:hover {
+            color: var(--epic-blue-hover);
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header class="header sticky-top">
-        <a href="#" class="navbar-brand">Admin Game Store</a>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <!-- <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link nav-item" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-item" href="produk.php">Products</a>
-                        </li>
-                    </ul> -->
-                    <div class="ms-3">
-                        <a href="register.php" class="btn btn-outline-secondary">Register</a>
-                        <a href="login.php" class="btn btn-outline-secondary ms-2">Login</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="navbar-brand">Admin Game Store</a>
+        </div>
     </header>
 
     <div class="container my-5">
         <div class="login-container">
-            <h2 class="text-center mb-4">Login Account</h2>
-            <form>
+            <h2 class="login-title">Admin Login</h2>
+            
+            <form method="POST" action="">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username or Email</label>
-                    <input type="text" class="form-control" id="username" required>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" required>
+                    <input type="password" class="form-control" id="password" name="password" required>
                 </div>
+                <?php if (isset($error_message)): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $error_message; ?>
+                    </div>
+                <?php endif; ?>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
-            <p class="text-center mt-3">Don't have an account? <a href="register.php" class="register-link">Register here</a></p>
         </div>
     </div>
 
-    <footer class="text-center">
-        <div>
-            <a href="#">Menu</a> |
-            <a href="#">Payment</a> |
-            <a href="#">Social Media</a> |
-            <a href="#">Contact</a>
-        </div>
-        <p class="mt-3 text-muted">&copy; 2025 Game Store. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

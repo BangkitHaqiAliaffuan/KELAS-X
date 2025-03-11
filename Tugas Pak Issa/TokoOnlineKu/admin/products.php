@@ -29,6 +29,10 @@
         .btn-custom:hover {
             background-color: #0088ff; /* Hover effect */
         }
+        .card-img-top {
+            height: 300px; /* Fixed height */
+            object-fit: cover; /* Maintain aspect ratio and cover the area */
+        }
     </style>
 </head>
 <body>
@@ -64,12 +68,12 @@
     <h1 class="text-center my-4">Daftar Produk</h1>
 
     <div class="row">
-        <!-- Dummy Product 1 -->
+        <!-- Product 1 -->
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="https://via.placeholder.com/300x200.png?text=Game+1" class="card-img-top" alt="Game 1">
+                <img src="../images/jotun.jpeg" class="card-img-top" alt="Game 1">
                 <div class="card-body">
-                    <h5 class="card-title">Game 1</h5>
+                    <h5 class="card-title">Jotun</h5>
                     <p class="card-text">Deskripsi singkat tentang Game 1.</p>
                     <button class="btn btn-custom">Edit</button>
                     <button class="btn btn-custom">Hapus</button>
@@ -77,12 +81,12 @@
             </div>
         </div>
 
-        <!-- Dummy Product 2 -->
+        <!-- Product 2 -->
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="https://via.placeholder.com/300x200.png?text=Game+2" class="card-img-top" alt="Game 2">
+                <img src="../images/tekno.webp" class="card-img-top" alt="Game 2">
                 <div class="card-body">
-                    <h5 class="card-title">Game 2</h5>
+                    <h5 class="card-title">Teknotopia</h5>
                     <p class="card-text">Deskripsi singkat tentang Game 2.</p>
                     <button class="btn btn-custom">Edit</button>
                     <button class="btn btn-custom">Hapus</button>
@@ -90,7 +94,7 @@
             </div>
         </div>
 
-        <!-- Dummy Product 3 -->
+        <!-- Product 3 -->
         <div class="col-md-4 mb-4">
             <div class="card">
                 <img src="https://via.placeholder.com/300x200.png?text=Game+3" class="card-img-top" alt="Game 3">
