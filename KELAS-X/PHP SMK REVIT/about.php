@@ -1,0 +1,1 @@
+<h1>About SMKN 2 BUDURAN</h1>

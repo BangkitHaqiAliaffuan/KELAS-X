@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+/* nav */
+
+nav-left ul, nav-right ul{
+    list-style: none;
+}
+
+.logo img{
+    width: 100px;
+    display: block;
+    margin: auto;
+    padding: 10%;
+}
+
+nav-left ul a, nav-right ul a{
+    display: block;
+    padding: 10px;
+    background-color: aqua;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+nav-left ul a:hover, nav-right ul a:hover{
+    background-color: red;
+}
+
+/* main */
+
+.main-right{
+    margin: 10px;
+    text-align: center;
+    width: 40%;
+}
+
+.main-left{
+    margin: 30px;
+}
+
+/* produk */
+
+.display{
+    margin-top: 10%;
+}
+
+.display-content{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.produk{
+    margin-top: 10%;
+}
+
+.produk-content{
+    text-align: center;
+    padding: 10px;
+}
+
+.img-produk img{
+    width: 200px;
+}
+
+.description{
+    margin: auto;
+    width: 50%;
+}
+
+/* informasi */
+
+.icon img{
+    width: 50px;
+}
+
+.info{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.info-content{
+    padding: 20px;
+}
+
+
+@media screen and (min-width: 560px){
+    .header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    nav-left, nav-right{
+        display: flex;
+    }
+
+    nav-left ul, nav-right ul{
+        display: flex;
+    }
+
+    nav-left ul a, nav-right ul a{
+        background: none;
+        color: black;
+    }
+
+    .main{
+        display: flex;
+    }
+
+    .produk{
+        display: flex;
+        justify-items: center;
+        justify-content: space-evenly;
+    }
+
+    .main-right{
+        margin: auto;
+    }
+
+    .info{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .info-content{
+        display: flex;
+    }
+
+} 

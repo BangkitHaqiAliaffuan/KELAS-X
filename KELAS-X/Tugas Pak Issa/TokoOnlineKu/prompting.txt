@@ -1,0 +1,118 @@
+saya akan membuat toko online yang terdiri dari 3 bagian yaitu header, banner, produk, footer.  Dimana isi dari header adalah register, login, kolom pencarian, menu.   Isi dari banner adalah 2 kolom yang 1 banner statis, 1 banner dinamis . Isi dari produk adalah: gambar dengan nama produk, dan harga. Footer Berisi menu, pembayaran, media sosial dan kontak. buatkan halaman htmlnya saja     
+
+
+buatkan html untuk backend admin page yang digunakan untuk menampilkan barang barang dari database, serta menampilkan user dari database juga, setelah itu tambahkan kolom action untuk mengupdate dan delete user dan barang, serta tambahkan form untuk menambah user dan barang, untuk barang ada : nama produk, deskripsi, produk, harga produk, stok produk. Sedangkan untuk user ada : username, email, alamat. Lalu tambahkan form untuk mengisi data pada medsos yang ada di footer, lalu buatkan tabel order, yang akan menangani order produk yang berisi: nama produk, pembeli, alamat, waktu pembelian, lalu tombol batalkan pesanan. buatkan pada file file yang terpisah sesuai dengan fungsinya, halaman admin page sebagai halaman home dari admin page
+
+
+
+buatkan toko online menggunakan php dan mysql dengan fitur:
+1. menampilkan banner dinamis. 
+2. menampilkan produk yang terdiri dari gambar produk, nama produk, dan pastikan jika produk telah di tekan akan add to cart.
+3. menambahkan produk yang dibeli kedalam cart, pada cart berikan fungsi untuk menambah produk atau mengurangi produk, melihat harga, total, menghapus produk dari cart, tombol checkout untuk melakukan pembayaran, menghitung total harga, pajak
+4. berikan fungsi untuk register pelanggan dengan memasukkan kolom username, email address, password, confirm password
+5. berikan fungsi untuk login pelanggan dengan memasukkan username atau email, password 
+6. tampilan about page untuk pelanggan melihat profil dari toko kami seperti misi kami, visi kami, nilai kami, tambahkan gambar yang menggambarkan visi misi dan nilai
+7. berikan fungsi untuk laporan yang berisi form dengan isi : keluhan dan gambar keluhan 
+8. page shop yang menampilkan produk agar pembeli dapat melihat produk yang akan dibeli yang diberi fitur kategori
+buatkan phpnya saja tanpa menggunakan html dan css buat dalam file sesuai dengan fungsi fungsinya masing masing 
+
+
+<style>
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            margin-top: 400px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #18181b;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .warning {
+            background: #ff4444;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .order-summary {
+            background: #1f1f23;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .payment-instructions {
+            background: #1f1f23;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .payment-method {
+            flex: 1;
+            padding: 16px;
+            border: 2px solid #2a2a2a;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .payment-method.selected {
+            border-color: #0078f2;
+            background: rgba(0, 120, 242, 0.1);
+        }
+
+        .btn {
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 24px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-proceed {
+            background: #0078f2;
+            color: white;
+        }
+
+        .btn-mark-paid {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+    </style>

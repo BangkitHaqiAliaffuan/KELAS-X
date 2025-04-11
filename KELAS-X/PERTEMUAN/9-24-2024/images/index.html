@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rumah{
+            position: absolute;
+            width: 80%;
+            height: 900px;
+            background-color: red;
+            margin-top: 10%;
+        }
+
+        .kamar{
+            position: absolute;
+            width: 60%;
+            top: 100px;
+            height: 700px;
+            background-color: yellow;
+        }
+        .meja{
+            top: 125px;
+            bottom: 50px;
+            width: 50%;
+            height: 100px;
+            position: absolute;
+            background-color: green;
+        }
+        .kursi{
+            width: 100%;
+            height: 100px;
+            position:absolute;
+            /* left: 10%; */
+            top: 250px;
+            background-color: blue;
+        }
+        .laptop{
+            width: 50%;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            top: 375px;
+        }
+        .buku{
+            width: 100%;
+            height:200px;
+            background-color: aqua;
+            position: absolute;
+            top: 500px;
+            display: flex;
+        }
+        .komputer{
+            width: 50%;
+            height: 100px;
+            background-color: brown;
+            position: absolute;
+            top: 625px;
+        }
+        .gudang{
+            width: 100%;
+            height: 300px;
+            background-color: pink;
+            position: sticky;
+            top: 0px;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rumah">
+        <div class="kamar">
+            <div class="meja"></div>
+            <div class="kursi"></div>
+            <div class="laptop"></div>
+            <div class="buku">
+                <p>Buku Bahasa Indonesia</p>
+                <p>Buku Matematika</p>
+                <p>Buku Pemrograman</p>
+            </div>
+            <div class="komputer"></div>
+        </div>
+        <div class="gudang">
+            <img src="images/esTeh.jpeg" alt="">
+            <img src="images/mieGoreng.jpeg" alt="">
+            <img src="images/nasiGoreng.jpeg" alt="">
+        </div>
+    </div>
+</body>
+</html>
