@@ -16,7 +16,15 @@ use App\Http\Controllers\AdminAuthController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
+// Routes untuk verifikasi OTP
+Route::get('/email/verify', [AuthController::class, 'showVerificationForm'])
+    ->name('verification.notice');
 
+Route::post('/email/verify', [AuthController::class, 'verifyOtp'])
+    ->name('verification.verify');
+
+Route::get('/email/resend', [AuthController::class, 'resendOtp'])
+    ->name('verification.resend');
 Route::middleware(['auth'])->group(function () {
     Route::get('/history', [App\Http\Controllers\HistoryController::class, 'index'])->name('history');
     Route::post('/products/{id}/reviews', [ProductController::class, 'submitReview'])->name('products.reviews.submit');

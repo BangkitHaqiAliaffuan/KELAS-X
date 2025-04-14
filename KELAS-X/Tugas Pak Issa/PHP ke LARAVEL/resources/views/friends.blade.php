@@ -68,7 +68,7 @@
                                 @endif
                                 <span class="friend-status">Friend</span>
                                 <div class="card-overlay">
-                                    <a href="{{ route('chat.index', ['user_id' => $friend->id]) }}"
+                                    <a href=""
                                        class="action-button primary">
                                         <i class="fas fa-comment me-1"></i> Message
                                     </a>
@@ -78,7 +78,7 @@
                                 <h3 class="friend-name">{{ $friend->username }}</h3>
                                 <div class="friend-email">{{ $friend->email }}</div>
                                 <div class="friend-actions">
-                                    <a href="{{ route('chat.index', ['user_id' => $friend->id]) }}"
+                                    <a href=""
                                        class="action-button primary">
                                         <i class="fas fa-comment me-1"></i> Message
                                     </a>
