@@ -1,0 +1,2 @@
+Ini adalah contoh teks yang ditulis ke file.
+Ini adalah baris kedua.
