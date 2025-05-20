@@ -1,0 +1,31 @@
+export function postPelanggan() {
+    const nama = document.getElementById('nama').value;
+    const alamat = document.getElementById('alamat').value;
+    const telp = document.getElementById('telp').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (!nama || !alamat || !telp || !email || !password) {
+        alert('Semua field harus diisi!');
+        return;
+    }
+
+    const data = {
+        pelanggan: nama,
+        alamat: alamat,
+        telp: telp,
+        email: email,
+        password: password
+    };
+
+    return axios.post('http://localhost:8000/api/pelanggans', data)
+        .then(function (response) {
+            alert('Data pelanggan berhasil ditambahkan');
+            document.getElementById('form-pelanggan').reset();
+            getPelanggan(); // Refresh tabel
+        })
+        .catch(function (error) {
+            alert('Gagal menambahkan data pelanggan');
+            console.error(error);
+        });
+}

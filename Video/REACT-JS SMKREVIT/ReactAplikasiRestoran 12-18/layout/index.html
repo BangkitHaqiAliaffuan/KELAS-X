@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Restoran - Data Pelanggan</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        #form-pelanggan {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .button-container {
+                flex-wrap: wrap;
+            }
+            button {
+                flex: 1 1 calc(50% - 5px);
+            }
+            #form-pelanggan {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="btn-get" style="background-color: #007bff; color: white;">Tampilkan Semua</button>
+        <button id="btn-show" style="background-color: #17a2b8; color: white;">Tampilkan Detail</button>
+        <button id="btn-post" style="background-color: #28a745; color: white;">Tambah Data</button>
+        <button id="btn-delete" style="background-color: #dc3545; color: white;">Hapus Data</button>
+        <button id="btn-update" style="background-color: #ffc107; color: black;">Perbarui Data</button>
+    </div>
+    <form id="form-pelanggan">
+        <input type="text" id="nama" placeholder="Nama" required>
+        <input type="text" id="alamat" placeholder="Alamat" required>
+        <input type="text" id="telp" placeholder="No. Telepon" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Telp</th>
+            </tr>
+        </thead>
+        <tbody id="tbody-pelanggan"></tbody>
+    </table>
+   
+    <script type="module" src="js/function.js"></script>
+</body>
+</html>
