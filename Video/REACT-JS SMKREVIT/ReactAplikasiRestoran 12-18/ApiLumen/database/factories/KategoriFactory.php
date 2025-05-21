@@ -16,8 +16,20 @@ class KategoriFactory extends Factory
      */
     public function definition(): array
     {
+        $kategoriList = [
+            'Makanan Utama', 'Makanan Ringan', 'Makanan Penutup',
+            'Makanan Pembuka', 'Makanan Tradisional', 'Makanan Internasional',
+            'Minuman Panas', 'Minuman Dingin', 'Minuman Tradisional',
+            'Jus Buah', 'Smoothies', 'Kopi', 'Teh',
+            'Makanan Vegetarian', 'Makanan Laut', 'Makanan Pedas',
+            'Makanan Bakar', 'Makanan Goreng', 'Makanan Rebus',
+            'Minuman Soda', 'Minuman Beralkohol', 'Minuman Sehat',
+            'Makanan Kekinian', 'Makanan Diet', 'Makanan Organik'
+        ];
+
         return [
-            //
+            'kategori' => $this->faker->unique()->randomElement($kategoriList),
+            'keterangan' => $this->faker->sentence()
         ];
     }
 }

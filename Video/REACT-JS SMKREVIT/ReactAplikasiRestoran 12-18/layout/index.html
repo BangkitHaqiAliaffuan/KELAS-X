@@ -39,6 +39,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
+            /* Hide the form initially */
+            display: none;
         }
         input {
             width: 100%;
@@ -83,9 +85,13 @@
             button {
                 flex: 1 1 calc(50% - 5px);
             }
-            #form-pelanggan {
+            #form-pelanggan.visible {
                 grid-template-columns: 1fr;
             }
+        }
+        /* Add a class to show the form when needed */
+        #form-pelanggan.visible {
+            display: grid;
         }
     </style>
 </head>
@@ -96,7 +102,18 @@
         <button id="btn-post" style="background-color: #28a745; color: white;">Tambah Data</button>
         <button id="btn-delete" style="background-color: #dc3545; color: white;">Hapus Data</button>
         <button id="btn-update" style="background-color: #ffc107; color: black;">Perbarui Data</button>
+        <button id="btn-search" style="background-color: #6c757d; color: white;">Cari Data</button>
     </div>
+    
+    <form id="form-search" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <select id="search-type" style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+            <option value="pelanggan">Pelanggan</option>
+            <option value="kategori">Kategori</option>
+        </select>
+        <input type="number" id="search-id" placeholder="Masukkan ID" required style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+        <button type="button" id="btn-search-id" style="background-color: #6c757d; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">Cari</button>
+    </form>
+    
     <form id="form-pelanggan">
         <input type="text" id="nama" placeholder="Nama" required>
         <input type="text" id="alamat" placeholder="Alamat" required>
@@ -109,7 +126,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nama</th>
-                <th>Alamat</th>
+                <th>Keterangan/Alamat</th>
                 <th>Telp</th>
             </tr>
         </thead>
@@ -117,5 +134,32 @@
     </table>
    
     <script type="module" src="js/function.js"></script>
+    <script>
+        // Add event listeners to show/hide the form
+        document.getElementById('btn-post').addEventListener('click', function() {
+            document.getElementById('form-pelanggan').classList.add('visible');
+        });
+        
+        document.getElementById('btn-update').addEventListener('click', function() {
+            document.getElementById('form-pelanggan').classList.add('visible');
+        });
+        
+        // Hide form when clicking other buttons that don't need the form
+        document.getElementById('btn-get').addEventListener('click', function() {
+            document.getElementById('form-pelanggan').classList.remove('visible');
+        });
+        
+        document.getElementById('btn-show').addEventListener('click', function() {
+            document.getElementById('form-pelanggan').classList.remove('visible');
+        });
+        
+        document.getElementById('btn-delete').addEventListener('click', function() {
+            document.getElementById('form-pelanggan').classList.remove('visible');
+        });
+        
+        document.getElementById('btn-search').addEventListener('click', function() {
+            document.getElementById('form-pelanggan').classList.remove('visible');
+        });
+    </script>
 </body>
 </html>

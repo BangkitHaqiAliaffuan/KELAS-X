@@ -1,3 +1,5 @@
+import { getPelanggan } from './get.js';
+
 export function postPelanggan() {
     const nama = document.getElementById('nama').value;
     const alamat = document.getElementById('alamat').value;
@@ -22,6 +24,7 @@ export function postPelanggan() {
         .then(function (response) {
             alert('Data pelanggan berhasil ditambahkan');
             document.getElementById('form-pelanggan').reset();
+            document.getElementById('form-pelanggan').style.display = 'none'; // Sembunyikan form setelah selesai
             getPelanggan(); // Refresh tabel
         })
         .catch(function (error) {
